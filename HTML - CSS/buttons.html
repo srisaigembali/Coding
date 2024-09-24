@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttons</title>
+
+    <style>
+      .subscribe-btn {
+        background-color: rgb(200, 0, 0);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 2px;
+        cursor: pointer;
+        margin-right: 10px;
+        /* transition: margin 0.5s; */
+      }
+
+      /* .subscribe-btn:hover {
+        margin: 5px 5px;
+      } */
+
+      .subscribe-btn:active {
+        margin: 5px 5px;
+      }
+
+      .join-btn {
+        background-color: white;
+        color: rgb(41, 118, 211);
+        border: solid 1px rgb(41, 118, 211);
+        height: 36px;
+        width: 62px;
+        border-radius: 2px;
+        cursor: pointer;
+        margin-right: 8px;
+        transition: background-color 1s, color 1s;
+      }
+
+      .join-btn:hover {
+        background-color: rgb(41, 118, 211);
+        color: white;
+      }
+
+      .join-btn:active {
+        opacity: 0.5;
+      }
+
+      .stretch-button {
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 18px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        cursor: pointer;
+
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        transition: padding 0.15s, margin 0.15s;
+      }
+
+      .stretch-button:hover {
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="subscribe-btn">SUBSCRIBE</button>
+    <button class="join-btn">JOIN</button>
+    <button class="tweet-btn">Tweet</button>
+    <br />
+    <br />
+    <button class="stretch-button">One</button>
+    <button class="stretch-button">Two</button>
+    <button class="stretch-button">Three</button>
+  </body>
+</html>
