@@ -1,0 +1,5 @@
+npm i -g typescript
+npm init -y
+npx tsc --init / tsc --init
+tsc -b
+node file_name.js
