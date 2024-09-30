@@ -12,10 +12,10 @@ app.post("/", async (c) => {
 		department: string;
 		salary: number;
 	} = await c.req.json();
-	const { DATABASE_URL } = env<{ DATABASE_URL: string }>(c);
+	const { DIRECT_URL } = env<{ DIRECT_URL: string }>(c);
 
 	const prisma = new PrismaClient({
-		datasourceUrl: DATABASE_URL,
+		datasourceUrl: DIRECT_URL,
 	}).$extends(withAccelerate());
 
 	console.log(body);
