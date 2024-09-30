@@ -1,22 +1,32 @@
 import { Hono, Next } from "hono";
-import { Context } from "hono/jsx";
+import { PrismaClient } from "@prisma/client";
+import { withAccelerate } from "@prisma/extension-accelerate";
+import { env } from "hono/adapter";
 
 const app = new Hono();
 
-app.use(async (c, next) => {
-	if (c.req.header("Authorization")) {
-		// Do validation
-		await next();
-	} else {
-		return c.text("You dont have access");
-	}
-});
-
 app.post("/", async (c) => {
-	const body = await c.req.parseBody();
+	// Todo add zod validation here
+	const body: {
+		name: string;
+		department: string;
+		salary: number;
+	} = await c.req.json();
+	const { DATABASE_URL } = env<{ DATABASE_URL: string }>(c);
+
+	const prisma = new PrismaClient({
+		datasourceUrl: DATABASE_URL,
+	}).$extends(withAccelerate());
+
 	console.log(body);
-	console.log(c.req.header("Authorization"));
-	console.log(c.req.query("id"));
+
+	await prisma.employee.create({
+		data: {
+			name: body.name,
+			department: body.department,
+			salary: body.salary,
+		},
+	});
 
 	return c.json({ msg: "as" });
 });
